@@ -65,7 +65,7 @@ fun PurchaseDetails.toTransaction(): Transaction = Transaction(
 )
 
 fun Transaction.formattedAmount(): String {
-    return NumberFormat.getCurrencyInstance().format(amount)
+    return String.format("%.2f", amount)
 }
 
 fun Transaction.toTransactionUiState(isEntryValid: Boolean = false): PurchaseUiState = PurchaseUiState(

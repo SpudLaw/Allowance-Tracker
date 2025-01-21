@@ -100,7 +100,7 @@ fun HomeScreen(
             onItemClick = navigateToItemUpdate,
             modifier = modifier.fillMaxSize(),
             contentPadding = innerPadding,
-            balance = balance.toString(),
+            balance = String.format("%.2f", balance),
             updateBalance = {
                 viewModel.addDeposit(it)
             }
