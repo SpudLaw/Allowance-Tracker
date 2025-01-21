@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AllowanceTracker</string>
+    <string name="purchase_entry_title">Add Purchase</string>
+    <string name="back_button">Back</string>
+    <string name="no_purchases_description">Oops!\nThere are no purchases.\nTap + to add.</string>
+    <string name="save_action">Save</string>
+    <string name="purchase_amount_req">*Amount</string>
+    <string name="purchase_description_req">*Description</string>
+    <string name="required_fields">*Required</string>
+    <string name="add_deposit">Add Deposit</string>
+    <string name="balance">Balance: $%1$s</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="purchase_edit_title">Edit Purchase</string>
+</resources>
