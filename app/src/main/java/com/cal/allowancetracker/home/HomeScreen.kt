@@ -51,7 +51,9 @@ import com.cal.allowancetracker.data.Transaction
 import com.cal.allowancetracker.purchase.formatDateToString
 import com.cal.allowancetracker.purchase.formattedAmount
 import com.cal.allowancetracker.ui.theme.AllowanceTrackerTheme
+import java.util.Currency
 import java.util.Date
+import java.util.Locale
 
 object HomeDestination : NavigationDestination {
     override val route = "home"
@@ -160,7 +162,7 @@ private fun HomeBody(
         }
 
         if (openBalanceDialog.value) {
-            var amount by remember { mutableDoubleStateOf(0.0) }
+            var amount by remember { mutableStateOf("") }
             AlertDialog(onDismissRequest = { openBalanceDialog.value = false }) {
                 Card {
                     Row(Modifier.padding(10.dp)) {
@@ -171,7 +173,8 @@ private fun HomeBody(
                             .padding(10.dp)
                             .align(Alignment.CenterHorizontally),
                         value = amount.toString(),
-                        onValueChange = { amount = it.toDouble() },
+                        leadingIcon = { Text(Currency.getInstance(Locale.getDefault()).symbol) },
+                        onValueChange = { amount = it },
                         label = { Text(text = "Amount")},
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     )
@@ -188,7 +191,7 @@ private fun HomeBody(
                         }
                         TextButton(
                             onClick = {
-                                updateBalance(amount)
+                                updateBalance(amount.toDouble())
                                 openBalanceDialog.value = false },
                             modifier = Modifier.padding(8.dp),
                         ) {
