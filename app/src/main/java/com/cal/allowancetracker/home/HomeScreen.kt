@@ -102,7 +102,7 @@ fun HomeScreen(
             onItemClick = navigateToItemUpdate,
             modifier = modifier.fillMaxSize(),
             contentPadding = innerPadding,
-            balance = String.format("%.2f", balance),
+            balance = balance,
             updateBalance = {
                 viewModel.addDeposit(it)
             }
@@ -117,7 +117,7 @@ private fun HomeBody(
     onItemClick: (Int) -> Unit,
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(0.dp),
-    balance: String,
+    balance: Double,
     updateBalance: (Double) -> Unit
 ) {
 
@@ -130,7 +130,7 @@ private fun HomeBody(
         Row(modifier = Modifier.padding(contentPadding)) {
             Column(Modifier.padding(dimensionResource(id = R.dimen.padding_small))) {
                 Text(
-                    stringResource(R.string.balance, balance),
+                    text = String.format(stringResource(R.string.balance), balance),
                     style = MaterialTheme.typography.titleLarge,
                 )
             }
@@ -267,7 +267,7 @@ fun HomeBodyPreview() {
             Transaction(2, 20.0, false, "Game", date = Date()),
             Transaction(3, 15.25, false, "Fun thing that takes up a whole bunch of space omg", date = Date()),
 
-            ), onItemClick = {}, balance = "1000", updateBalance = {})
+            ), onItemClick = {}, balance = 1000.0, updateBalance = {})
     }
 }
 
@@ -275,7 +275,7 @@ fun HomeBodyPreview() {
 @Composable
 fun HomeBodyEmptyListPreview() {
     AllowanceTrackerTheme {
-        HomeBody(listOf(), onItemClick = {}, balance = "100.0", updateBalance = { })
+        HomeBody(listOf(), onItemClick = {}, balance = 100.3432, updateBalance = { })
     }
 }
 

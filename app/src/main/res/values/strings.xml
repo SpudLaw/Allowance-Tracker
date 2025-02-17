@@ -8,7 +8,7 @@
     <string name="purchase_description_req">*Description</string>
     <string name="required_fields">*Required</string>
     <string name="add_deposit">Add Deposit</string>
-    <string name="balance">Balance: $%1$s</string>
+    <string name="balance">Balance: $ %.2f</string>
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
     <string name="purchase_edit_title">Edit Purchase</string>
